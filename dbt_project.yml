@@ -5,11 +5,10 @@ config-version: 2
 
 profile: 'redshift'
 
-source-paths: ["models"]
-analysis-paths: ["analysis"]
+model-paths: ["models"]
 test-paths: ["tests"]
-data-paths: ["data"]
 macro-paths: ["macros"]
+analysis-paths: ["analysis"]
 
 target-path: "target"
 clean-targets:
@@ -20,7 +19,3 @@ models:
   tipico_data_modeling:
     schema: "sumanth_atluri"
     materialized: table
-
-seeds:
-  tipico_data_modeling:
-    schema: "sumanth_atluri"
