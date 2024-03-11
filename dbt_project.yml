@@ -6,8 +6,7 @@ vars:
   redshift_host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
   redshift_port: 5439
   redshift_user: sumanth_atluri
-  redshift_password: Fn59_fwn!bAf_QP
-  redshift_schema: sumanth_atluri
+  redshift_password: 'Fn59_fwn!bAf_QP'  # Password enclosed in single quotes
 
 models:
   tipico_events:
@@ -30,5 +29,9 @@ target:
   port: "{{ var('redshift_port') }}"
   database: dev
   user: "{{ var('redshift_user') }}"
-  password: "{{ var('redshift_password') }}"
-  schema: "{{ var('redshift_schema') }}"
+  password: '{{ var("redshift_password") }}'  # Reference password variable
+  schema: sumanth_atluri
+
+packages:
+  - package: dbt-labs/redshift
+    version: 1.5.8  # Use the latest stable version
