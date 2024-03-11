@@ -13,10 +13,8 @@ models:
     marts:
       +materialized: table
       +schema: tipico_marts
-    core:
-      +schema: tipico_marts
 
-source-paths: ["models"]
+model-paths: ["models"]
 target-path: "target"
 
 seeds:
