@@ -5,7 +5,6 @@ config-version: 2
 vars:
   redshift_host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
   redshift_port: 5439
-  _redshift_database: dev
   redshift_user: sumanth_atluri
   redshift_password: Fn59_fwn!bAf_QP
   redshift_schema: sumanth_atluri
@@ -29,7 +28,7 @@ target:
   type: redshift
   host: "{{ var('redshift_host') }}"
   port: "{{ var('redshift_port') }}"
-  database: "{{ var('_redshift_database') }}"
+  database: dev
   user: "{{ var('redshift_user') }}"
   password: "{{ var('redshift_password') }}"
   schema: "{{ var('redshift_schema') }}"
