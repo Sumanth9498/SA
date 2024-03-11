@@ -1,6 +1,0 @@
-sources:
-  - name: tipico
-    database: dev
-    schema: sumanth_atluri
-    tables:
-      - name: RAW_TIPICO_TOP_EVENTS
