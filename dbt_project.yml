@@ -2,12 +2,6 @@ name: 'tipico_events'
 version: '1.0.0'
 config-version: 2
 
-vars:
-  redshift_host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
-  redshift_port: 5439
-  redshift_user: sumanth_atluri
-  redshift_password: 'Fn59_fwn!bAf_QP'
-
 models:
   tipico_events:
     +materialized: table
@@ -25,11 +19,11 @@ model-paths: ["models"]
 
 target:
   type: redshift
-  host: '{{ var("redshift_host") }}'
-  port: '{{ var("redshift_port") }}'
+  host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
+  port: 5439
   database: dev
-  user: '{{ var("redshift_user") }}'
-  password: '{{ var("redshift_password") }}'
+  user: sumanth_atluri
+  password: 'Fn59_fwn!bAf_QP'
   schema: sumanth_atluri
 
 packages:
