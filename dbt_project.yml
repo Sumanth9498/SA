@@ -5,18 +5,27 @@ config-version: 2
 models:
   tipico_events:
     +materialized: table
-  staging:
-    +materialized: view
-  raw_tipico_events:
-    +column_types:
-      data: STRING
-  marts:
-    +materialized: table
-    core:
-      +schema: tipico_marts
+    raw_tipico_events:
+      +column_types:
+        data: STRING
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+      core:
+        +schema: tipico_marts
 
 model-paths: ["models"]
 
-packages:
-  - package: dbt-labs/redshift
-    version: 1.5.8
+profiles:
+  tipico_events:
+    target: dev
+    outputs:
+      dev:
+        type: redshift
+        host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
+        port: 5439
+        database: dev
+        user: sumanth_atluri
+        password: Fn59_fwn!bAf_QP
+        schema: sumanth_atluri
