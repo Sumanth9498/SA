@@ -1,33 +1,35 @@
-name: 'tipico_assessment'
+name: 'tipico_events'
 version: '1.0.0'
 config-version: 2
 
-profile: 'redshift'
-
-source-paths: ["models"]
-model-paths: ["models"]
-test-paths: ["tests"]
-
-target-path: "target"
-clean-targets:
-    - "target"
-    - "dbt_packages"
-
 models:
-  tipico:
+  tipico_events:
     +materialized: table
-    +schema: sumanth_atluri
     staging:
       +materialized: view
-    root_elements:
+      raw_tipico_events:
+        +column_types:
+          data: STRING
+    marts:
       +materialized: table
-    participants:
-      +materialized: table
-    group:
-      +materialized: table
-    markets:
-      +materialized: table
-    event_details:
-      +materialized: table
-    event_tags:
-      +materialized: table
+      core:
+        +schema: tipico_marts
+
+model-paths: ["models"]
+
+vars:
+  redshift_host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
+  redshift_port: 5439
+  redshift_database: dev
+  redshift_user: sumanth_atluri
+  redshift_password: Fn59_fwn!bAf_QP
+  redshift_schema: sumanth_atluri
+
+target:
+  type: redshift
+  host: "{{ var('redshift_host') }}"
+  port: "{{ var('redshift_port') }}"
+  database: "{{ var('redshift_database') }}"
+  user: "{{ var('redshift_user') }}"
+  password: "{{ var('redshift_password') }}"
+  schema: "{{ var('redshift_schema') }}"
