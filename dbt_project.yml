@@ -15,3 +15,6 @@ model-paths: ["models"]
 target-path: "target"
 
 require-dbt-version: [">=1.0.0", "<2.0.0"]
+
+vars:
+  redshift_host: "manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com"
