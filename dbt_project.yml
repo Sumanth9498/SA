@@ -2,8 +2,6 @@ name: 'tipico_events'
 version: '1.0.0'
 config-version: 2
 
-profile: 'redshift'
-
 models:
   tipico_events:
     +materialized: table
@@ -21,21 +19,7 @@ models:
 source-paths: ["models"]
 target-path: "target"
 
-seeds: 
+seeds:
   +schema: seeds
 
 require-dbt-version: [">=1.0.0", "<2.0.0"]
-
-profiles:
-  redshift:
-    target: dev
-    outputs:
-      dev:
-        type: redshift
-        host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
-        port: 5439
-        user: sumanth_atluri
-        password: Fn59_fwn!bAf_QP
-        dbname: dev
-        schema: sumanth_atluri
-        threads: 4
