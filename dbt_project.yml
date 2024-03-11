@@ -18,18 +18,19 @@ models:
 model-paths: ["models"]
 
 vars:
-  redshift_host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
-  redshift_port: 5439
-  redshift_database: dev
-  redshift_user: sumanth_atluri
-  redshift_password: Fn59_fwn!bAf_QP
-  redshift_schema: sumanth_atluri
+  redshift:
+    host: manual-dwh-candidatetests.258845600139.us-east-1.redshift-serverless.amazonaws.com
+    port: 5439
+    database: dev
+    user: sumanth_atluri
+    password: Fn59_fwn!bAf_QP
+    schema: sumanth_atluri
 
 target:
   type: redshift
-  host: "{{ var('redshift_host') }}"
-  port: "{{ var('redshift_port') }}"
-  database: "{{ var('redshift_database') }}"
-  user: "{{ var('redshift_user') }}"
-  password: "{{ var('redshift_password') }}"
-  schema: "{{ var('redshift_schema') }}"
+  host: "{{ var('redshift:host') }}"
+  port: "{{ var('redshift:port') }}"
+  database: "{{ var('redshift:database') }}"
+  user: "{{ var('redshift:user') }}"
+  password: "{{ var('redshift:password') }}"
+  schema: "{{ var('redshift:schema') }}"
