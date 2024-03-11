@@ -1,0 +1,33 @@
+name: 'tipico_assessment'
+version: '1.0.0'
+config-version: 2
+
+profile: 'redshift'
+
+source-paths: ["models"]
+model-paths: ["models"]
+test-paths: ["tests"]
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_packages"
+
+models:
+  tipico:
+    +materialized: table
+    +schema: sumanth_atluri
+    staging:
+      +materialized: view
+    root_elements:
+      +materialized: table
+    participants:
+      +materialized: table
+    group:
+      +materialized: table
+    markets:
+      +materialized: table
+    event_details:
+      +materialized: table
+    event_tags:
+      +materialized: table
