@@ -5,9 +5,6 @@ config-version: 2
 models:
   tipico_events:
     +materialized: table
-    raw_tipico_events:
-      +column_types:
-        json_data: STRING
     staging:
       +materialized: view
     marts:
@@ -16,8 +13,5 @@ models:
 
 model-paths: ["models"]
 target-path: "target"
-
-seeds:
-  +schema: seeds
 
 require-dbt-version: [">=1.0.0", "<2.0.0"]
