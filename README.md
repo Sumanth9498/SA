@@ -1,4 +1,4 @@
-# Tipico Assessment: Data Modeling with dbt
+Data Modeling with dbt
 
 This repository contains my solution for the data modeling and transformation assessment using dbt (data build tool). The objective of this assessment was to demonstrate proficiency in data modeling, SQL transformations, and working with dbt.
 
